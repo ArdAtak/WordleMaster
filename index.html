@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Wordle Master</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="Master.css">
+</head>
+
+<body>
+    <div id="master">
+        <h1 class="title">Wordle Master</h1>
+        Enter each guess and click on the letters to change their state / color
+        <input type="text" id="focus" class="focus" />
+        <p />
+        <div v-for="guess, index in guesses">
+            <span class="title guess">Guess {{index + 1}}:</span>
+            <input v-for="pos, index in guess" type="text" class="form-control letter" v-bind:class="getPosClass(pos)" maxlength="1" v-model="pos.letter" v-on:click="changeState(pos);" v-on:change="posChange(pos, index)" v-on:keyup="posKeyUp($event, index)"  />    
+        </div>
+
+        <p><br /></p>
+
+        <span class="title guess">Valid Words</span><button class="btn btn-primary btn-large">Reset</button>
+
+        <p />
+
+        
+        <br />
+        <span v-for="word in words" class="word">{{word}}</span>
+    </div>
+
+
+    <!--- SCRIPTS --->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="Master.js"></script>
+</body>
+
+</html>
