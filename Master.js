@@ -91,6 +91,11 @@ var master = new Vue({
     }
 });
 
+function Reset() {
+    location.reload();
+    return false;
+}
+
 var GlobalWordList = [
         "AARON",
         "ABACK",

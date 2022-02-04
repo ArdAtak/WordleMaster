@@ -22,14 +22,12 @@
             <input v-for="pos, index in guess" type="text" class="form-control letter" v-bind:class="getPosClass(pos)" maxlength="1" v-model="pos.letter" v-on:click="changeState(pos);" v-on:change="posChange(pos, index)" v-on:keyup="posKeyUp($event, index)"  />    
         </div>
 
-        <p><br /></p>
+        <p/><br />
 
-        <span class="title guess">Valid Words</span><button class="btn btn-primary btn-large">Reset</button>
+        <span class="title guess">Valid Words</span><button class="btn btn-primary btn-large" onclick="Reset()">Reset</button>
 
-        <p />
+        <p /><br />
 
-        
-        <br />
         <span v-for="word in words" class="word">{{word}}</span>
     </div>
 
