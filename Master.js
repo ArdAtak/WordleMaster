@@ -55,7 +55,7 @@ var master = new Vue({
                 var guess = this.guesses[i];
                 for (var j = 0; j < 5; j++) {
                     var pos = guess[j];
-                    if (pos.letter.toUpperCase() === letter && pos.state === "good") {
+                    if (pos.letter.toUpperCase() === letter && (pos.state === "good" || pos.state === "valid")) {
                         return true;
                     }
                 }
